@@ -1,0 +1,8 @@
+# config files
+cfg/
+backup/
+cmd/cst/main.go
+
+# logs and struct backup files
+logs/
+#backup/
