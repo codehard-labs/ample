@@ -99,6 +99,8 @@ message AllEvmChainClientsReply {
         string gas_mode = 9;
         string gas_type = 10;
         repeated string gas_specs = 11;
+        string sync_mode = 12;
+        uint64 blocks_before_resync = 13;
     }
     repeated EvmChainClientReply clients = 2;
 }

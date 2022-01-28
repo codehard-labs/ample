@@ -12,6 +12,8 @@ type EvmChainClient struct {
 	GasMode                string   `json:"gasMode"`
 	GasType                string   `json:"gasType"`
 	GasSpecs               []string `json:"gasSpecs"`
+	SyncMode               string   `json:"syncMode"`
+	BlocksBeforeResync     uint64   `json:"blocksBeforeResync"`
 }
 
 func LoadEvmChainClientsFromDB() ([]EvmChainClient, error) {

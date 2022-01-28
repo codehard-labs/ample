@@ -88,6 +88,8 @@ func (s *server) GetAllEvmChainClients(ctx context.Context, in *pb.EmptyRequest)
 			GasMode:                c.GasMode,
 			GasType:                c.GasType,
 			GasSpecs:               c.GasSpecs,
+			SyncMode:               c.SyncMode,
+			BlocksBeforeResync:     c.BlocksBeforeResync,
 		})
 	}
 	return &pb.AllEvmChainClientsReply{Ok: true, Clients: clients}, nil
