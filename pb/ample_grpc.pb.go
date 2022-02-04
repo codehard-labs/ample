@@ -20,7 +20,7 @@ const _ = grpc.SupportPackageIsVersion7
 type AmpleClient interface {
 	GetAllSources(ctx context.Context, in *EmptyRequest, opts ...grpc.CallOption) (*AllSourcesReply, error)
 	GetAllTokens(ctx context.Context, in *EmptyRequest, opts ...grpc.CallOption) (*AllTokensReply, error)
-	GetAllSourceHoldingControls(ctx context.Context, in *EmptyRequest, opts ...grpc.CallOption) (*AllSourceHoldingControlsReply, error)
+	GetAllSourcePositionControls(ctx context.Context, in *EmptyRequest, opts ...grpc.CallOption) (*AllSourcePositionControlsReply, error)
 	GetAllObexTradingPairs(ctx context.Context, in *EmptyRequest, opts ...grpc.CallOption) (*AllObexTradingPairsReply, error)
 	GetAllEvmChainClients(ctx context.Context, in *EmptyRequest, opts ...grpc.CallOption) (*AllEvmChainClientsReply, error)
 	GetAllUniV2Dexs(ctx context.Context, in *EmptyRequest, opts ...grpc.CallOption) (*AllUniV2DexsReply, error)
@@ -54,9 +54,9 @@ func (c *ampleClient) GetAllTokens(ctx context.Context, in *EmptyRequest, opts .
 	return out, nil
 }
 
-func (c *ampleClient) GetAllSourceHoldingControls(ctx context.Context, in *EmptyRequest, opts ...grpc.CallOption) (*AllSourceHoldingControlsReply, error) {
-	out := new(AllSourceHoldingControlsReply)
-	err := c.cc.Invoke(ctx, "/ample.Ample/GetAllSourceHoldingControls", in, out, opts...)
+func (c *ampleClient) GetAllSourcePositionControls(ctx context.Context, in *EmptyRequest, opts ...grpc.CallOption) (*AllSourcePositionControlsReply, error) {
+	out := new(AllSourcePositionControlsReply)
+	err := c.cc.Invoke(ctx, "/ample.Ample/GetAllSourcePositionControls", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -105,7 +105,7 @@ func (c *ampleClient) GetRawJsonConfig(ctx context.Context, in *KeyRequest, opts
 type AmpleServer interface {
 	GetAllSources(context.Context, *EmptyRequest) (*AllSourcesReply, error)
 	GetAllTokens(context.Context, *EmptyRequest) (*AllTokensReply, error)
-	GetAllSourceHoldingControls(context.Context, *EmptyRequest) (*AllSourceHoldingControlsReply, error)
+	GetAllSourcePositionControls(context.Context, *EmptyRequest) (*AllSourcePositionControlsReply, error)
 	GetAllObexTradingPairs(context.Context, *EmptyRequest) (*AllObexTradingPairsReply, error)
 	GetAllEvmChainClients(context.Context, *EmptyRequest) (*AllEvmChainClientsReply, error)
 	GetAllUniV2Dexs(context.Context, *EmptyRequest) (*AllUniV2DexsReply, error)
@@ -124,8 +124,8 @@ func (UnimplementedAmpleServer) GetAllSources(context.Context, *EmptyRequest) (*
 func (UnimplementedAmpleServer) GetAllTokens(context.Context, *EmptyRequest) (*AllTokensReply, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetAllTokens not implemented")
 }
-func (UnimplementedAmpleServer) GetAllSourceHoldingControls(context.Context, *EmptyRequest) (*AllSourceHoldingControlsReply, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetAllSourceHoldingControls not implemented")
+func (UnimplementedAmpleServer) GetAllSourcePositionControls(context.Context, *EmptyRequest) (*AllSourcePositionControlsReply, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetAllSourcePositionControls not implemented")
 }
 func (UnimplementedAmpleServer) GetAllObexTradingPairs(context.Context, *EmptyRequest) (*AllObexTradingPairsReply, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetAllObexTradingPairs not implemented")
@@ -188,20 +188,20 @@ func _Ample_GetAllTokens_Handler(srv interface{}, ctx context.Context, dec func(
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Ample_GetAllSourceHoldingControls_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Ample_GetAllSourcePositionControls_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(EmptyRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AmpleServer).GetAllSourceHoldingControls(ctx, in)
+		return srv.(AmpleServer).GetAllSourcePositionControls(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/ample.Ample/GetAllSourceHoldingControls",
+		FullMethod: "/ample.Ample/GetAllSourcePositionControls",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AmpleServer).GetAllSourceHoldingControls(ctx, req.(*EmptyRequest))
+		return srv.(AmpleServer).GetAllSourcePositionControls(ctx, req.(*EmptyRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -294,8 +294,8 @@ var Ample_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _Ample_GetAllTokens_Handler,
 		},
 		{
-			MethodName: "GetAllSourceHoldingControls",
-			Handler:    _Ample_GetAllSourceHoldingControls_Handler,
+			MethodName: "GetAllSourcePositionControls",
+			Handler:    _Ample_GetAllSourcePositionControls_Handler,
 		},
 		{
 			MethodName: "GetAllObexTradingPairs",

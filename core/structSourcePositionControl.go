@@ -4,13 +4,13 @@ package core
 // if we are allowed to borrow and sell the asset.
 // To ensure consistency, weightSum is also int instead of uint.
 
-type SourceHoldingControl struct {
-	SourceName string           `json:"sourceName"`
-	WeightSum  int32            `json:"weightSum"`
-	Controls   []HoldingControl `json:"controls"`
+type SourcePositionControl struct {
+	SourceName string            `json:"sourceName"`
+	WeightSum  int32             `json:"weightSum"`
+	Controls   []PositionControl `json:"controls"`
 }
 
-type HoldingControl struct {
+type PositionControl struct {
 	Asset             string `json:"asset"`
 	WeightControlOn   bool   `json:"weightControlOn"`
 	WeightMin         int32  `json:"weightMin"`
@@ -20,9 +20,9 @@ type HoldingControl struct {
 	QuantityMax       string `json:"quantityMax"` // this can be some decimals that needs to be accurate
 }
 
-func LoadSourceHoldingControlsFromDB() ([]SourceHoldingControl, error) {
-	name := "sourceHoldingControls"
-	data := []SourceHoldingControl{}
+func LoadSourcePositionControlsFromDB() ([]SourcePositionControl, error) {
+	name := "sourcePositionControls"
+	data := []SourcePositionControl{}
 	//
 	err := loadFromDB(name, &data)
 	if err != nil {
@@ -31,8 +31,8 @@ func LoadSourceHoldingControlsFromDB() ([]SourceHoldingControl, error) {
 	return data, err
 }
 
-func SaveSourceHoldingControlsToDB(data []SourceHoldingControl) error {
-	name := "sourceHoldingControls"
+func SaveSourcePositionControlsToDB(data []SourcePositionControl) error {
+	name := "sourcePositionControls"
 	//
 	return saveToDB(name, &data)
 }

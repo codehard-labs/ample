@@ -16,7 +16,7 @@ package ample;
 service Ample {
     rpc GetAllSources (EmptyRequest) returns (AllSourcesReply) {}
     rpc GetAllTokens (EmptyRequest) returns (AllTokensReply) {}
-    rpc GetAllSourceHoldingControls (EmptyRequest) returns (AllSourceHoldingControlsReply) {}
+    rpc GetAllSourcePositionControls (EmptyRequest) returns (AllSourcePositionControlsReply) {}
     rpc GetAllObexTradingPairs (EmptyRequest) returns (AllObexTradingPairsReply) {}
     rpc GetAllEvmChainClients (EmptyRequest) returns (AllEvmChainClientsReply) {}
     rpc GetAllUniV2Dexs (EmptyRequest) returns (AllUniV2DexsReply) {}
@@ -51,10 +51,10 @@ message AllTokensReply {
     repeated TokenReply tokens = 2;
 }
 
-message AllSourceHoldingControlsReply {
+message AllSourcePositionControlsReply {
     bool ok = 1;
-    message SourceHoldingControlReply {
-        message HoldingControlReply {
+    message SourcePositionControlReply {
+        message PositionControlReply {
             string asset = 1;
             bool weight_control_on = 2;
             int32 weight_min = 3;
@@ -65,9 +65,9 @@ message AllSourceHoldingControlsReply {
         }
         string source_name = 1;
         int32 weight_sum = 2;
-        repeated HoldingControlReply controls = 3;
+        repeated PositionControlReply controls = 3;
     }
-    repeated SourceHoldingControlReply source_controls = 2;
+    repeated SourcePositionControlReply source_controls = 2;
 }
 
 message AllObexTradingPairsReply {

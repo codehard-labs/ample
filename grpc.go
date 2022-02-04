@@ -113,15 +113,15 @@ func (s *server) GetAllUniV2Dexs(ctx context.Context, in *pb.EmptyRequest) (*pb.
 	return &pb.AllUniV2DexsReply{Ok: true, Dexs: dexs}, nil
 }
 
-func (s *server) GetAllSourceHoldingControls(ctx context.Context, in *pb.EmptyRequest) (*pb.AllSourceHoldingControlsReply, error) {
-	src_ctrls := make([]*pb.AllSourceHoldingControlsReply_SourceHoldingControlReply, 0)
+func (s *server) GetAllSourcePositionControls(ctx context.Context, in *pb.EmptyRequest) (*pb.AllSourcePositionControlsReply, error) {
+	src_ctrls := make([]*pb.AllSourcePositionControlsReply_SourcePositionControlReply, 0)
 	s.db.RLock()
 	defer s.db.RUnlock()
-	for _, c := range s.db.SourceHoldingControls {
-		ctrls := make([]*pb.AllSourceHoldingControlsReply_SourceHoldingControlReply_HoldingControlReply, 0)
+	for _, c := range s.db.SourcePositionControls {
+		ctrls := make([]*pb.AllSourcePositionControlsReply_SourcePositionControlReply_PositionControlReply, 0)
 		// populate ctrls
 		for _, cc := range c.Controls {
-			ctrls = append(ctrls, &pb.AllSourceHoldingControlsReply_SourceHoldingControlReply_HoldingControlReply{
+			ctrls = append(ctrls, &pb.AllSourcePositionControlsReply_SourcePositionControlReply_PositionControlReply{
 				Asset:             cc.Asset,
 				WeightControlOn:   cc.WeightControlOn,
 				WeightMin:         cc.WeightMin,
@@ -131,13 +131,13 @@ func (s *server) GetAllSourceHoldingControls(ctx context.Context, in *pb.EmptyRe
 				QuantityMax:       cc.QuantityMax,
 			})
 		}
-		src_ctrls = append(src_ctrls, &pb.AllSourceHoldingControlsReply_SourceHoldingControlReply{
+		src_ctrls = append(src_ctrls, &pb.AllSourcePositionControlsReply_SourcePositionControlReply{
 			SourceName: c.SourceName,
 			WeightSum:  c.WeightSum,
 			Controls:   ctrls,
 		})
 	}
-	return &pb.AllSourceHoldingControlsReply{Ok: true, SourceControls: src_ctrls}, nil
+	return &pb.AllSourcePositionControlsReply{Ok: true, SourceControls: src_ctrls}, nil
 }
 
 func (s *server) GetRawJsonConfig(ctx context.Context, in *pb.KeyRequest) (*pb.RawJsonConfigReply, error) {

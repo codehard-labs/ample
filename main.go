@@ -8,12 +8,12 @@ import (
 
 type ConfigDB struct {
 	sync.RWMutex
-	Sources               []core.Source
-	Tokens                []core.Token
-	SourceHoldingControls []core.SourceHoldingControl
-	ObexTradingPairs      []core.ObexTradingPair
-	EvmChainClients       []core.EvmChainClient
-	UniV2Dexs             []core.UniV2Dex
+	Sources                []core.Source
+	Tokens                 []core.Token
+	SourcePositionControls []core.SourcePositionControl
+	ObexTradingPairs       []core.ObexTradingPair
+	EvmChainClients        []core.EvmChainClient
+	UniV2Dexs              []core.UniV2Dex
 }
 
 func main() {
@@ -25,7 +25,7 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	sourceHoldingControl, err := core.LoadSourceHoldingControlsFromDB()
+	sourcePositionControls, err := core.LoadSourcePositionControlsFromDB()
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -42,12 +42,12 @@ func main() {
 		log.Fatal(err)
 	}
 	db := &ConfigDB{
-		Sources:               sources,
-		Tokens:                tokens,
-		SourceHoldingControls: sourceHoldingControl,
-		ObexTradingPairs:      obexTradingPairs,
-		EvmChainClients:       evmChainClients,
-		UniV2Dexs:             uniV2Dexs,
+		Sources:                sources,
+		Tokens:                 tokens,
+		SourcePositionControls: sourcePositionControls,
+		ObexTradingPairs:       obexTradingPairs,
+		EvmChainClients:        evmChainClients,
+		UniV2Dexs:              uniV2Dexs,
 	}
 	InitGrpcServer(db)
 }
