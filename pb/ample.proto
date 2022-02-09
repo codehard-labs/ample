@@ -89,7 +89,7 @@ message AllEvmChainClientsReply {
     bool ok = 1;
     message EvmChainClientReply {
         string chain_name = 1;
-        uint32 chain_id = 2;
+        uint64 chain_id = 2;
         string native_asset = 3;
         string query_rpc_address = 4;
         string exec_rpc_address = 5;

@@ -2,7 +2,7 @@ package core
 
 type EvmChainClient struct {
 	ChainName              string   `json:"chainName"`
-	ChainID                uint32   `json:"chainID"`
+	ChainID                uint64   `json:"chainID"`
 	NativeAsset            string   `json:"nativeAsset"`
 	QueryRPCAddress        string   `json:"queryRPCAddress"`
 	ExecRPCAddress         string   `json:"execRPCAddress"`
