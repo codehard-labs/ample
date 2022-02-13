@@ -4,8 +4,8 @@ type EvmChainClient struct {
 	ChainName              string   `json:"chainName"`
 	ChainID                uint64   `json:"chainID"`
 	NativeAsset            string   `json:"nativeAsset"`
-	QueryRPCAddress        string   `json:"queryRPCAddress"`
-	ExecRPCAddress         string   `json:"execRPCAddress"`
+	MainRPCAddress         string   `json:"mainRPCAddress"`
+	BroadcastRPCAddresses  []string `json:"broadcastRPCAddresses"`
 	TradingContractAddress string   `json:"tradingContractAddress"`
 	TradingContractVersion string   `json:"tradingContractVersion"`
 	RegisteredWorkers      uint32   `json:"registeredWorkers"`
@@ -14,6 +14,7 @@ type EvmChainClient struct {
 	GasSpecs               []string `json:"gasSpecs"`
 	SyncMode               string   `json:"syncMode"`
 	BlocksBeforeResync     uint64   `json:"blocksBeforeResync"`
+	CallStatic             bool     `json:"callStatic"`
 }
 
 func LoadEvmChainClientsFromDB() ([]EvmChainClient, error) {

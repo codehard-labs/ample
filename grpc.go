@@ -80,8 +80,8 @@ func (s *server) GetAllEvmChainClients(ctx context.Context, in *pb.EmptyRequest)
 			ChainName:              c.ChainName,
 			ChainId:                c.ChainID,
 			NativeAsset:            c.NativeAsset,
-			QueryRpcAddress:        c.QueryRPCAddress,
-			ExecRpcAddress:         c.ExecRPCAddress,
+			MainRpcAddress:         c.MainRPCAddress,
+			BroadcastRpcAddresses:  c.BroadcastRPCAddresses,
 			TradingContractAddress: c.TradingContractAddress,
 			TradingContractVersion: c.TradingContractVersion,
 			RegisteredWorkers:      c.RegisteredWorkers,
@@ -90,6 +90,7 @@ func (s *server) GetAllEvmChainClients(ctx context.Context, in *pb.EmptyRequest)
 			GasSpecs:               c.GasSpecs,
 			SyncMode:               c.SyncMode,
 			BlocksBeforeResync:     c.BlocksBeforeResync,
+			CallStatic:             c.CallStatic,
 		})
 	}
 	return &pb.AllEvmChainClientsReply{Ok: true, Clients: clients}, nil

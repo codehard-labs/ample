@@ -91,8 +91,8 @@ message AllEvmChainClientsReply {
         string chain_name = 1;
         uint64 chain_id = 2;
         string native_asset = 3;
-        string query_rpc_address = 4;
-        string exec_rpc_address = 5;
+        string main_rpc_address = 4;
+        repeated string broadcast_rpc_addresses = 5;
         string trading_contract_address = 6;
         string trading_contract_version = 7;
         uint32 registered_workers = 8;
@@ -101,6 +101,7 @@ message AllEvmChainClientsReply {
         repeated string gas_specs = 11;
         string sync_mode = 12;
         uint64 blocks_before_resync = 13;
+        bool call_static = 14;
     }
     repeated EvmChainClientReply clients = 2;
 }
