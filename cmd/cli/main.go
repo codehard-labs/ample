@@ -25,11 +25,14 @@ func main() {
 	c := pb.NewAmpleClient(conn)
 	ctx, cancel := context.WithTimeout(context.Background(), 1*time.Second)
 	defer cancel()
-	r, err := c.GetAllObexTradingPairs(ctx, &pb.EmptyRequest{})
+	r, err := c.GetAllUniV2Dexs(ctx, &pb.EmptyRequest{})
 	if err != nil {
 		log.Fatalf("could not greet: %v", err)
 	}
 	log.Printf("Received Reserve: %s", r)
+	for _, dex := range r.Dexs {
+		log.Println(dex)
+	}
 	// 	r, err := c.GetRawJsonConfig(ctx, &pb.KeyRequest{
 	// 		Key: "obexTradingPairs",
 	// 	})

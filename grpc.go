@@ -107,7 +107,8 @@ func (s *server) GetAllUniV2Dexs(ctx context.Context, in *pb.EmptyRequest) (*pb.
 			RouterAddress:  d.RouterAddress,
 			FactoryAddress: d.FactoryAddress,
 			SubType:        d.SubType,
-			FeeRev:         d.FeeRev,
+			FeeN:           d.FeeN,
+			FeeD:           d.FeeD,
 			Trading:        d.Trading,
 		})
 	}

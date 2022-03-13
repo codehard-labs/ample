@@ -114,8 +114,9 @@ message AllUniV2DexsReply {
         string router_address = 3;
         string factory_address = 4;
         string sub_type = 5;
-        uint32 fee_rev = 6;
-        bool trading = 7;
+        uint64 fee_n = 6;
+        uint64 fee_d = 7;
+        bool trading = 8;
     }
     repeated UniV2DexReply dexs = 2;
 }

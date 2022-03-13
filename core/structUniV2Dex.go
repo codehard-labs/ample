@@ -6,7 +6,8 @@ type UniV2Dex struct {
 	RouterAddress  string `json:"routerAddress"`
 	FactoryAddress string `json:"factoryAddress"`
 	SubType        string `json:"subType"`
-	FeeRev         uint32 `json:"feeRev"`
+	FeeN           uint64 `json:"feeN"`
+	FeeD           uint64 `json:"feeD"`
 	Trading        bool   `json:"trading"`
 }
 
