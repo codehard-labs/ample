@@ -5,8 +5,8 @@ import (
 	"log"
 	"net"
 
-	"ample/core"
-	pb "ample/pb"
+	"github.com/hashwavelab/ample/core"
+	"github.com/hashwavelab/ample/pb"
 
 	"google.golang.org/grpc"
 )

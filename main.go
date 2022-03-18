@@ -1,9 +1,10 @@
 package main
 
 import (
-	"ample/core"
 	"log"
 	"sync"
+
+	"github.com/hashwavelab/ample/core"
 )
 
 type ConfigDB struct {

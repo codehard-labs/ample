@@ -5,7 +5,7 @@ import (
 	"log"
 	"time"
 
-	pb "ample/pb"
+	"github.com/hashwavelab/ample/pb"
 
 	"google.golang.org/grpc"
 )
