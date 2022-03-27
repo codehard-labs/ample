@@ -10,9 +10,8 @@ import (
 	"google.golang.org/grpc/credentials/insecure"
 )
 
-var RPCTimeout = time.Second * 1
-
-const (
+var (
+	RPCTimeout  = 5 * time.Second
 	GRPCAddress = "localhost:8880"
 )
 

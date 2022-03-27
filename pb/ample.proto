@@ -14,12 +14,15 @@ package ample;
 
 
 service Ample {
+    // V1 RPCs
     rpc GetAllSources (EmptyRequest) returns (AllSourcesReply) {}
     rpc GetAllTokens (EmptyRequest) returns (AllTokensReply) {}
     rpc GetAllSourcePositionControls (EmptyRequest) returns (AllSourcePositionControlsReply) {}
     rpc GetAllObexTradingPairs (EmptyRequest) returns (AllObexTradingPairsReply) {}
     rpc GetAllEvmChainClients (EmptyRequest) returns (AllEvmChainClientsReply) {}
     rpc GetAllUniV2Dexs (EmptyRequest) returns (AllUniV2DexsReply) {}
+    // V2 RPCs
+    rpc GetAllEvmChainConfigs (EmptyRequest) returns (AllEvmChainClientsReply) {}
     //
     rpc GetRawJsonConfig (KeyRequest) returns (RawJsonConfigReply) {}
 }
