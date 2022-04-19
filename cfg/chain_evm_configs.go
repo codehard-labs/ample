@@ -23,6 +23,7 @@ type ChainEVMConfig struct {
 	FilterQuerySupport        string   `bson:"filterQuerySupport" json:"filterQuerySupport"`
 	ResyncPeriod              uint64   `bson:"resyncPeriod" json:"resyncPeriod"`
 	EstGasInsteadOfCallStatic bool     `bson:"estGasInsteadOfCallStatic" json:"estGasInsteadOfCallStatic"`
+	SnipeModeEnabled          bool     `bson:"snipeModeEnabled" json:"snipeMode"`
 }
 
 func GetAllChainEVMConfig() ([]ChainEVMConfig, error) {
