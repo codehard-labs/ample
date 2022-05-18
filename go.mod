@@ -1,4 +1,4 @@
-module github.com/hashwavelab/ample
+module github.com/codehard-labs/ample
 
 go 1.17
 

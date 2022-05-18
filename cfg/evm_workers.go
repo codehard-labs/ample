@@ -3,7 +3,7 @@ package cfg
 import (
 	"errors"
 
-	"github.com/hashwavelab/ample/mongo"
+	"github.com/codehard-labs/ample/mongo"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo/options"
 )

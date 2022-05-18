@@ -1,7 +1,7 @@
 package cfg
 
 import (
-	"github.com/hashwavelab/ample/mongo"
+	"github.com/codehard-labs/ample/mongo"
 	"go.mongodb.org/mongo-driver/bson"
 )
 
