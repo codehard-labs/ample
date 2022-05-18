@@ -53,7 +53,7 @@ func FindOne(collectionName string, filter interface{}, res interface{}, opts ..
 }
 
 // The input res should be a pointer
-func FindAll(collectionName string, filter interface{}, res interface{}) error {
+func FindAll(collectionName string, filter interface{}, res interface{}, opts ...*options.FindOptions) error {
 	client, disconnect := GetMongoClient("")
 	if client == nil {
 		return errors.New("get mongo client failed")
@@ -62,7 +62,7 @@ func FindAll(collectionName string, filter interface{}, res interface{}) error {
 	collection := client.Database(MongoDBName).Collection(collectionName)
 	ctx, cancel := context.WithTimeout(context.Background(), MongoQueryTimeout)
 	defer cancel()
-	r, err := collection.Find(ctx, filter)
+	r, err := collection.Find(ctx, filter, opts...)
 	if err != nil {
 		return err
 	}
