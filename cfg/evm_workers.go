@@ -23,7 +23,7 @@ type EVMWorker struct {
 func GetTradingWorkersOfOneEVMChain(chain string, count int) ([]EVMWorker, error) {
 	var res []EVMWorker
 	filter := &bson.M{"chain": chain, "trading": true}
-	ops := options.Find().SetSort(bson.D{{Key: "index", Value: -1}})
+	ops := options.Find().SetSort(bson.D{{Key: "index", Value: 1}})
 	err := mongo.FindAll(EVMWorkersCollectionName, filter, &res, ops)
 	if err != nil {
 		return nil, err
