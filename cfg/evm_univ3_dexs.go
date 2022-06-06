@@ -10,12 +10,13 @@ var (
 )
 
 type UniV3Dex struct {
-	Name           string   `bson:"name" json:"name"`
-	Source         string   `bson:"source" json:"source"`
-	RouterAddress  string   `bson:"routerAddress" json:"routerAddress"`
-	FactoryAddress string   `bson:"factoryAddress" json:"factoryAddress"`
-	Pools          []string `bson:"pools" json:"pools"`
-	Trading        bool     `bson:"trading" json:"trading"`
+	Name                  string   `bson:"name" json:"name"`
+	Source                string   `bson:"source" json:"source"`
+	RouterAddress         string   `bson:"routerAddress" json:"routerAddress"`
+	FactoryAddress        string   `bson:"factoryAddress" json:"factoryAddress"`
+	Pools                 []string `bson:"pools" json:"pools"`
+	GetTicksHelperAddress string   `bson:"getTicksHelperAddress" json:"getTicksHelperAddress"`
+	Trading               bool     `bson:"trading" json:"trading"`
 }
 
 func GetAllUniV3DexsOfOneSource(source string) ([]UniV3Dex, error) {
