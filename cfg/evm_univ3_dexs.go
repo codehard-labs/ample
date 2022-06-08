@@ -14,6 +14,7 @@ type UniV3Dex struct {
 	Source                string   `bson:"source" json:"source"`
 	RouterAddress         string   `bson:"routerAddress" json:"routerAddress"`
 	FactoryAddress        string   `bson:"factoryAddress" json:"factoryAddress"`
+	FactoryDeployedBlock  uint64   `bson:"factoryDeployedBlock" json:"factoryDeployedBlock"`
 	Pools                 []string `bson:"pools" json:"pools"`
 	GetTicksHelperAddress string   `bson:"getTicksHelperAddress" json:"getTicksHelperAddress"`
 	Trading               bool     `bson:"trading" json:"trading"`
