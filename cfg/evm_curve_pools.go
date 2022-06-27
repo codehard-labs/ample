@@ -19,7 +19,7 @@ type CurvePool struct {
 	UnderlyingCoins         []CurveCoin `bson:"underlyingCoins" json:"underlyingCoins"`
 	BasePool                string      `bson:"basePool" json:"basePool"` // Only applies to meta pools
 	DynamicFee              bool        `bson:"dynamicFee" json:"dynamicFee"`
-	HasReceiver             bool        `bson:"hasReceiver" json:"hasReceiver"`
+	ReceiverSupport         bool        `bson:"receiverSupport" json:"receiverSupport"`
 	ExchangeUnderlyingProxy string      `bson:"exchangeUnderlyingProxy" json:"exchangeUnderlyingProxy"`
 	Trading                 bool        `bson:"trading" json:"trading"`
 }
