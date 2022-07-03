@@ -15,6 +15,7 @@ type BalV2Vault struct {
 	VaultAddress               string   `bson:"vaultAddress" json:"vaultAddress"`
 	WeightedPools              []string `bson:"weightedPools" json:"weightedPools"`
 	StablePools                []string `bson:"stablePools" json:"stablePools"`
+	FactoryDeployedBlock       uint64   `bson:"factoryDeployedBlock" json:"factoryDeployedBlock"`
 	WeightedPoolFactory        string   `bson:"weightedPoolFactory" json:"weightedPoolFactory"`
 	WeightedPool2TokensFactory string   `bson:"weightedPool2TokensFactory" json:"weightedPool2TokensFactory"`
 	StablePoolFactory          string   `bson:"stablePoolFactory" json:"stablePoolFactory"`
