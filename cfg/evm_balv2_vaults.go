@@ -10,14 +10,15 @@ var (
 )
 
 type BalV2Vault struct {
-	Name                string   `bson:"name" json:"name"`
-	Source              string   `bson:"source" json:"source"`
-	VaultAddress        string   `bson:"vaultAddress" json:"vaultAddress"`
-	WeightedPoolFactory string   `bson:"weightedPoolFactory" json:"weightedPoolFactory"`
-	WeightedPools       []string `bson:"weightedPools" json:"weightedPools"`
-	StablePoolFactory   string   `bson:"stablePoolFactory" json:"stablePoolFactory"`
-	StablePools         []string `bson:"stablePools" json:"stablePools"`
-	Trading             bool     `bson:"trading" json:"trading"`
+	Name                       string   `bson:"name" json:"name"`
+	Source                     string   `bson:"source" json:"source"`
+	VaultAddress               string   `bson:"vaultAddress" json:"vaultAddress"`
+	WeightedPools              []string `bson:"weightedPools" json:"weightedPools"`
+	StablePools                []string `bson:"stablePools" json:"stablePools"`
+	WeightedPoolFactory        string   `bson:"weightedPoolFactory" json:"weightedPoolFactory"`
+	WeightedPool2TokensFactory string   `bson:"weightedPool2TokensFactory" json:"weightedPool2TokensFactory"`
+	StablePoolFactory          string   `bson:"stablePoolFactory" json:"stablePoolFactory"`
+	Trading                    bool     `bson:"trading" json:"trading"`
 }
 
 func GetAllBalV2VaultsOfOneSource(source string) ([]BalV2Vault, error) {
