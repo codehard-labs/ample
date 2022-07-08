@@ -16,6 +16,7 @@ type EVMAbstractDex struct {
 	RouterAddress        string   `bson:"routerAddress" json:"routerAddress"`
 	FactoryAddress       string   `bson:"factoryAddress" json:"factoryAddress"`
 	FactoryDeployedBlock uint64   `bson:"factoryDeployedBlock" json:"factoryDeployedBlock"`
+	VaultAddress         string   `bson:"vaultAddress" json:"vaultAddress"`
 	Pools                []string `bson:"pools" json:"pools"`
 	Trading              bool     `bson:"trading" json:"trading"`
 }
